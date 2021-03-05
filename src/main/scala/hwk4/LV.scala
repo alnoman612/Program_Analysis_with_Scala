@@ -20,7 +20,7 @@ case class LV (stmt: Statement) extends Analysis[Alv]{
 
   def transfer(stmt: Statement, ell: Alv) ={
     def f(y: String, e:Expression) ={
-      val s= ell.exps.filter({case x => ! Util.fv(x).contains(y)})
+      val s= ell.exps.filter({case x => Util.fv(x).contains(y)})
 
       Alv(s)
     }
